@@ -1,15 +1,42 @@
-// Get the install button element
-const installButton = document.querySelector('.install-button button');
+const searchInput = document.getElementById('search-input');
+const categoryDropdown = document.getElementById('category-dropdown');
+const installPrompts = document.querySelectorAll('.install-prompt');
+const organizerBtn = document.getElementById('organizer-btn');
 
-// Add a click event listener to the install button
-installButton.addEventListener('click', () => {
-// Simulate the installation process
-installButton.textContent = 'Installing...';
-installButton.disabled = true;
+let isRowView = false;
 
-// After a short delay, simulate a successful installation
-setTimeout(() => {
-installButton.textContent = 'Installed';
-installButton.style.backgroundColor = '#4CAF50';
-}, 2000);
+function filterPrompts() {
+const searchTerm = searchInput.value.toLowerCase();
+const selectedCategory = categoryDropdown.value;
+
+installPrompts.forEach((prompt) => {
+const appName = prompt.querySelector('.app-name').textContent.toLowerCase();
+const category = prompt.dataset.category;
+
+if (
+(searchTerm === '' || appName.includes(searchTerm)) &&
+(selectedCategory === '' || category === selectedCategory)
+) {
+prompt.style.display = 'flex';
+} else {
+prompt.style.display = 'none';
+}
+});
+}
+
+searchInput.addEventListener('input', filterPrompts);
+categoryDropdown.addEventListener('change', filterPrompts);
+
+organizerBtn.addEventListener('click', () => {
+const installPromptsContainer = document.querySelector('.install-prompts-container');
+
+if (!isRowView) {
+installPromptsContainer.classList.add('row-view');
+organizerBtn.textContent = 'View as Grid';
+} else {
+installPromptsContainer.classList.remove('row-view');
+organizerBtn.textContent = 'View as Rows';
+}
+
+isRowView = !isRowView;
 });
