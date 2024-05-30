@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dropbox App Install Prompt</title>
-  <link rel="stylesheet" href="install.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Install Prompts</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="install-prompt">
-    <div class="icon-container">
-      <div class="icon"></div>
-    </div>
-    <div class="app-info">
-      <h2 class="app-name">Dropbox: Cloud & Phot...</h2>
-      <p class="app-version">Version 379.1 (379.1.2)</p>
-      <p class="expiry">Expires in 81 days</p>
-    </div>
-    <div class="install-button">
-      <button>Install</button>
-    </div>
-  </div>
-  <script src="install.js"></script>
+<div class="search-container">
+<input type="text" id="search-input" placeholder="Search for apps, tools, scripts, and more">
+<select id="category-dropdown">
+<option value="">All Categories</option>
+<option value="apps">Apps</option>
+<option value="tools">Tools</option>
+<option value="scripts">Scripts</option>
+<option value="soon">Soon!</option>
+</select>
+<div class="organizer-container">
+<button id="organizer-btn">View as Rows</button>
+</div>
+</div>
+
+<div class="install-prompts-container">
+<!-- App Install Prompt Template -->
+<div class="install-prompt">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name">Dropbox: Cloud & Phot...</h2>
+<p class="app-version">Version 379.1 (379.1.2)</p>
+<p class="expiry">Expires in 81 days</p>
+</div>
+<div class="install-button">
+<a href="https://www.dropbox.com/mobile" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
+<!-- End of App Install Prompt Template -->
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
