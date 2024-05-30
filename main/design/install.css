@@ -81,13 +81,12 @@ margin-left: 12px;
 }
 
 .app-name {
-font-size: 16px;
+font-size: 14px;
 font-weight: bold;
 margin-bottom: 4px;
 }
 
-.app-version,
-.expiry {
+.app-downloads {
 font-size: 12px;
 color: #666;
 }
@@ -104,8 +103,29 @@ cursor: pointer;
 
 .row-view .install-prompt {
 flex-direction: row;
+align-items: flex-start;
+padding: 16px;
 }
 
-.row-view .install-prompts-container {
-grid-template-columns: repeat(1, 1fr);
+.row-view .icon-container {
+width: 60px;
+height: 60px;
+}
+
+.row-view .icon {
+width: 60px;
+height: 60px;
+}
+
+.row-view .app-info {
+margin-left: 16px;
+flex-grow: 1;
+}
+
+.row-view .app-name {
+font-size: 16px;
+}
+
+.row-view .app-downloads {
+font-size: 14px;
 }
