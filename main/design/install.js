@@ -40,9 +40,10 @@ isRowView = !isRowView;
 
 function incrementDownloads(event) {
 const installPrompt = event.target.closest('.install-prompt');
-const downloadCount = parseInt(installPrompt.dataset.downloads);
-installPrompt.dataset.downloads = downloadCount + 1;
-installPrompt.querySelector('.app-downloads').textContent = `${downloadCount + 1}+ downloads`;
+let downloadCount = parseInt(installPrompt.dataset.downloads);
+downloadCount++;
+installPrompt.dataset.downloads = downloadCount;
+installPrompt.querySelector('.app-downloads').textContent = `${downloadCount}+ downloads`;
 }
 
 searchInput.addEventListener('input', filterPrompts);
@@ -50,4 +51,10 @@ categoryDropdown.addEventListener('change', filterPrompts);
 organizerBtn.addEventListener('click', toggleView);
 installButtons.forEach((button) => {
 button.addEventListener('click', incrementDownloads);
+});
+
+// Initialize download counts from data attribute
+installPrompts.forEach((prompt) => {
+const downloadCount = parseInt(prompt.dataset.downloads);
+prompt.querySelector('.app-downloads').textContent = `${downloadCount}+ downloads`;
 });
