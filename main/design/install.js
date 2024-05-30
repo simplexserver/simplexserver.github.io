@@ -40,7 +40,7 @@ isRowView = !isRowView;
 
 function incrementDownloads(event) {
 const installPrompt = event.target.closest('.install-prompt');
-let downloadCount = parseInt(installPrompt.dataset.downloads);
+let downloadCount = parseInt(installPrompt.dataset.downloads) || 0;
 downloadCount++;
 installPrompt.dataset.downloads = downloadCount;
 installPrompt.querySelector('.app-downloads').textContent = `${downloadCount}+ downloads`;
@@ -55,6 +55,6 @@ button.addEventListener('click', incrementDownloads);
 
 // Initialize download counts from data attribute
 installPrompts.forEach((prompt) => {
-const downloadCount = parseInt(prompt.dataset.downloads);
+const downloadCount = parseInt(prompt.dataset.downloads) || 0;
 prompt.querySelector('.app-downloads').textContent = `${downloadCount}+ downloads`;
 });
