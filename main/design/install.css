@@ -15,10 +15,18 @@ width: 300px;
 
 #category-dropdown {
 margin-left: 10px;
-padding: 8px 16px;
+padding: 8px 16px 8px 12px;
 border: 1px solid #ccc;
 border-radius: 20px;
 font-size: 16px;
+background-color: #fff;
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+background-image: url('dropdown-arrow.svg');
+background-repeat: no-repeat;
+background-position: right 12px center;
+background-size: 12px;
 }
 
 .organizer-container {
@@ -52,16 +60,16 @@ padding: 12px;
 .icon-container {
 background-color: #0061fe;
 border-radius: 8px;
-width: 48px;
-height: 48px;
+width: 40px;
+height: 40px;
 display: flex;
 justify-content: center;
 align-items: center;
 }
 
 .icon {
-width: 24px;
-height: 24px;
+width: 40px;
+height: 40px;
 background-image: url('dropbox-icon.svg');
 background-size: contain;
 background-repeat: no-repeat;
