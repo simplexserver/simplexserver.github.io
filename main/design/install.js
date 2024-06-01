@@ -58,12 +58,3 @@ if (postPassword === process.env.BETA_POST_PASSWORD) {
 console.log('Post submitted successfully!');
 closePostModal();
 } else {
-alert('Incorrect password. Please try again.');
-}
-}
-
-searchInput.addEventListener('input', filterPrompts);
-categoryDropdown.addEventListener('change', filterPrompts);
-organizerBtn.addEventListener('click', toggleView);
-postButton.addEventListener('click', showPostModal);
-closeButton.addEventListener('click', closePostModal);
