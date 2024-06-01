@@ -9,24 +9,88 @@
 </head>
 <body>
 <div class="search-container">
-<input type="text" id="searchInput" placeholder="Search for apps...">
-<select id="categoryDropdown">
-<option value="all">All Categories</option>
+<input type="text" id="search-input" placeholder="Search for apps, tools, scripts, and more">
+<select id="category-dropdown">
+<option value="">All Categories</option>
+<option value="apps">Apps</option>
 <option value="tools">Tools</option>
 <option value="scripts">Scripts</option>
-<option value="apps">Apps</option>
+<option value="others">Others</option>
 </select>
-<button id="organizerButton">Organize</button>
+<div class="organizer-container">
+<button id="organizer-btn">View as Rows</button>
+<button class="post-button" onclick="showPostModal()">Post</button>
 </div>
-<div id="appPromptsContainer" class="app-prompts-container">
-<!-- App prompts will be dynamically added here -->
 </div>
+
+<div class="install-prompts-container row-view">
+<div class="install-prompt" data-category="apps">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name apps">Dropbox: Cloud & Phot...</h2>
+<p class="app-posted-by">Posted by Admin</p>
+</div>
+<div class="install-button">
+<a href="https://www.dropbox.com/mobile" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
+
+<div class="install-prompt" data-category="tools">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name tools">VS Code: Code Editor</h2>
+<p class="app-posted-by">Posted by Owner</p>
+</div>
+<div class="install-button">
+<a href="https://code.visualstudio.com/" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
+
+<div class="install-prompt" data-category="scripts">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name scripts">Node.js: JavaScript Runtime</h2>
+<p class="app-posted-by">Posted by Admin</p>
+</div>
+<div class="install-button">
+<a href="https://nodejs.org/" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
+<div class="install-prompt" data-category="others">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name others">Custom Script</h2>
+<p class="app-posted-by">Posted by User</p>
+</div>
+<div class="install-button">
+<a href="#" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
+</div>
+
 <div class="post-container">
 <input type="text" id="appName" placeholder="App Name">
 <input type="text" id="appCategory" placeholder="App Category">
 <input type="text" id="appLink" placeholder="App Link">
 <button id="postButton" class="styled-button">Post</button>
 </div>
+
 <script src="install.js"></script>
 </body>
 </html>
