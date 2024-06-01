@@ -50,7 +50,7 @@ grid-gap: 20px;
 }
 
 .install-prompt {
-background-color: #fff;
+background-color: #f2f2f2;
 border-radius: 16px;
 display: flex;
 align-items: center;
@@ -86,11 +86,6 @@ font-weight: bold;
 margin-bottom: 4px;
 }
 
-.app-downloads {
-font-size: 12px;
-color: #666;
-}
-
 .install-button button {
 background-color: #0061fe;
 color: #fff;
@@ -124,8 +119,4 @@ flex-grow: 1;
 
 .row-view .app-name {
 font-size: 16px;
-}
-
-.row-view .app-downloads {
-font-size: 14px;
 }
