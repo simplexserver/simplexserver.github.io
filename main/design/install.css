@@ -1,122 +1,25 @@
+@media (max-width: 767px) {
 .search-container {
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 20px;
+flex-direction: column;
+align-items: stretch;
 }
 
 #search-input {
-padding: 8px 16px;
-border: 1px solid #ccc;
-border-radius: 20px;
-font-size: 16px;
-width: 300px;
-}
-
-#category-dropdown {
-margin-left: 10px;
-padding: 8px 16px 8px 12px;
-border: 1px solid #ccc;
-border-radius: 20px;
-font-size: 16px;
-background-color: #fff;
-appearance: none;
--webkit-appearance: none;
--moz-appearance: none;
-background-image: url('dropdown-arrow.svg');
-background-repeat: no-repeat;
-background-position: right 12px center;
-background-size: 12px;
-}
-
-.organizer-container {
-margin-left: 10px;
-}
-
-#organizer-btn {
-background-color: #0061fe;
-color: #fff;
-border: none;
-border-radius: 16px;
-padding: 8px 16px;
-font-size: 14px;
-cursor: pointer;
+width: 100%;
 }
 
 .install-prompts-container {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-gap: 20px;
-}
-
-.install-prompt {
-background-color: #f2f2f2;
-border-radius: 16px;
-display: flex;
-align-items: center;
-padding: 12px;
-}
-
-.icon-container {
-background-color: #0061fe;
-border-radius: 8px;
-width: 40px;
-height: 40px;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.icon {
-width: 40px;
-height: 40px;
-background-image: url('dropbox-icon.svg');
-background-size: contain;
-background-repeat: no-repeat;
-}
-
-.app-info {
-flex-grow: 1;
-margin-left: 12px;
-}
-
-.app-name {
-font-size: 14px;
-font-weight: bold;
-margin-bottom: 4px;
-}
-
-.install-button button {
-background-color: #0061fe;
-color: #fff;
-border: none;
-border-radius: 16px;
-padding: 8px 16px;
-font-size: 14px;
-cursor: pointer;
+grid-template-columns: 1fr;
 }
 
 .row-view .install-prompt {
-flex-direction: row;
-align-items: flex-start;
-padding: 16px;
-}
-
-.row-view .icon-container {
-width: 60px;
-height: 60px;
-}
-
-.row-view .icon {
-width: 60px;
-height: 60px;
+flex-direction: column;
+align-items: center;
 }
 
 .row-view .app-info {
-margin-left: 16px;
-flex-grow: 1;
+text-align: center;
+margin-left: 0;
+margin-top: 12px;
 }
-
-.row-view .app-name {
-font-size: 16px;
 }
