@@ -1,1 +1,32 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Install Prompts</title>
+<link rel="stylesheet" href="install.css">
+</head>
+<body>
+<div class="search-container">
+<input type="text" id="searchInput" placeholder="Search for apps...">
+<select id="categoryDropdown">
+<option value="all">All Categories</option>
+<option value="tools">Tools</option>
+<option value="scripts">Scripts</option>
+<option value="apps">Apps</option>
+</select>
+<button id="organizerButton">Organize</button>
+</div>
+<div id="appPromptsContainer" class="app-prompts-container">
+<!-- App prompts will be dynamically added here -->
+</div>
+<div class="post-container">
+<input type="text" id="appName" placeholder="App Name">
+<input type="text" id="appCategory" placeholder="App Category">
+<input type="text" id="appLink" placeholder="App Link">
+<button id="postButton" class="styled-button">Post</button>
+</div>
+<script src="install.js"></script>
+</body>
+</html>
