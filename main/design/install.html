@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
 </select>
 <div class="organizer-container">
 <button id="organizer-btn">View as Rows</button>
-<button class="post-button" onclick="showPostModal()">Post</button>
+<button class="post-button">Post</button>
 </div>
 </div>
 
@@ -67,5 +68,44 @@
 </a>
 </div>
 </div>
-
 <div class="install-prompt" data-category="others">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name others">Figma: Design Tool</h2>
+<p class="app-posted-by">Posted by Owner</p>
+</div>
+<div class="install-button">
+<a href="https://www.figma.com/" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
+</div>
+
+<div class="post-modal">
+<div class="post-modal-content">
+<span class="close-button">&times;</span>
+<h2>Post an App</h2>
+<label for="app-name">App Name:</label>
+<input type="text" id="app-name" required>
+<label for="app-category">Category:</label>
+<select id="app-category" required>
+<option value="">Select a Category</option>
+<option value="apps">Apps</option>
+<option value="tools">Tools</option>
+<option value="scripts">Scripts</option>
+<option value="others">Others</option>
+</select>
+<label for="app-link">Download Link:</label>
+<input type="text" id="app-link" required>
+<label for="post-password">Admin Password:</label>
+<input type="password" id="post-password" required>
+<button class="post-button" onclick="submitPost()">Post</button>
+</div>
+</div>
+
+<script src="install.js"></script>
+</body>
+</html>
