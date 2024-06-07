@@ -1,67 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="install.css">
-  <title>Install Prompts</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Install Prompts</title>
+<link rel="stylesheet" href="install.css">
 </head>
 <body>
-  <div class="search-container">
-    <input id="search-input" type="text" placeholder="Search...">
-    <select id="category-dropdown">
-      <option value="apps">Apps</option>
-      <option value="tools">Tools</option>
-      <option value="scripts">Scripts</option>
-      <option value="others">Others</option>
-    </select>
-    <button id="organizer-btn">Organizer</button>
-    <button class="post-button">Post</button>
-  </div>
+<div class="search-container">
+<input type="text" id="search-input" placeholder="Search for apps, tools, scripts, and more">
+<select id="category-dropdown">
+<option value="">All Categories</option>
+<option value="apps">Apps</option>
+<option value="tools">Tools</option>
+<option value="scripts">Scripts</option>
+<option value="soon">Soon!</option>
+</select>
+<div class="organizer-container">
+<button id="organizer-btn">View as Rows</button>
+</div>
+</div>
 
-  <div class="install-prompts-container">
-    <div class="install-prompt">
-      <div class="icon-container">
-        <img src="https://cdn.discordapp.com/attachments/1240766974871601196/1246318201764057139/image0.jpg?ex=665bf3c6&is=665aa246&hm=c8f7c2b2eb24cb8aeb1292d1d9a9fba1d488d76ed65487ae6a03a540cbc04dff&" alt="Dropbox Icon" class="icon">
-      </div>
-      <div class="app-info">
-        <div class="app-name apps">Dropbox</div>
-        <div class="app-posted-by">Posted by: User</div>
-      </div>
-      <div class="install-button">
-        <button>Install</button>
-      </div>
-    </div>
-    <!-- Repeat .install-prompt for more items -->
-  </div>
+<div class="install-prompts-container">
+<div class="install-prompt" data-category="apps" data-downloads="0">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name">Dropbox: Cloud & Phot...</h2>
+<p class="app-downloads">0+ downloads</p>
+</div>
+<div class="install-button">
+<a href="https://www.dropbox.com/mobile" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
 
-  <div id="myModal" class="post-modal">
-    <div class="post-modal-content">
-      <span class="close-button">&times;</span>
-      <p>Some text in the Modal..</p>
-    </div>
-  </div>
+<div class="install-prompt" data-category="tools" data-downloads="0">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name">VS Code: Code Editor</h2>
+<p class="app-downloads">0+ downloads</p>
+</div>
+<div class="install-button">
+<a href="https://code.visualstudio.com/" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
 
-  <script>
-    // JavaScript for modal functionality
-    var modal = document.getElementById("myModal");
-    var btn = document.querySelector(".post-button");
-    var span = document.getElementsByClassName("close-button")[0];
+<div class="install-prompt" data-category="scripts" data-downloads="0">
+<div class="icon-container">
+<div class="icon"></div>
+</div>
+<div class="app-info">
+<h2 class="app-name">Node.js: JavaScript Runtime</h2>
+<p class="app-downloads">0+ downloads</p>
+</div>
+<div class="install-button">
+<a href="https://nodejs.org/" target="_blank">
+<button>Install</button>
+</a>
+</div>
+</div>
+</div>
 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
+<script src="install.js"></script>
 </body>
 </html>
