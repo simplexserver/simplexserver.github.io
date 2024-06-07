@@ -1,227 +1,131 @@
-
 .search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-#search-input,
-#category-dropdown,
-#organizer-btn,
-.post-button {
-  margin: 5px;
-  flex-grow: 1;
-  max-width: 300px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 20px;
 }
 
 #search-input {
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 16px;
+padding: 8px 16px;
+border: 1px solid #ccc;
+border-radius: 20px;
+font-size: 16px;
+width: 300px;
 }
 
 #category-dropdown {
-  padding: 8px 16px 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 16px;
-  background-color: #fff;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('dropdown-arrow.svg');
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 12px;
+margin-left: 10px;
+padding: 8px 16px 8px 12px;
+border: 1px solid #ccc;
+border-radius: 20px;
+font-size: 16px;
+background-color: #fff;
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+background-image: url('dropdown-arrow.svg');
+background-repeat: no-repeat;
+background-position: right 12px center;
+background-size: 12px;
 }
 
-#organizer-btn,
-.post-button {
-  background-color: #0061fe;
-  color: #fff;
-  border: none;
-  border-radius: 16px;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
+.organizer-container {
+margin-left: 10px;
 }
 
-.post-button {
-  background-color: #00c853;
+#organizer-btn {
+background-color: #0061fe;
+color: #fff;
+border: none;
+border-radius: 16px;
+padding: 8px 16px;
+font-size: 14px;
+cursor: pointer;
 }
 
 .install-prompts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-}
-
-.install-prompts-container.row-view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 20px;
 }
 
 .install-prompt {
-  background-color: #f2f2f2;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.row-view .install-prompt {
-  flex-direction: row;
-  align-items: center;
-  padding: 16px;
-  width: 100%;
-  max-width: 800px;
+background-color: #fff;
+border-radius: 16px;
+display: flex;
+align-items: center;
+padding: 12px;
 }
 
 .icon-container {
-  background-color: #0061fe;
-  border-radius: 8px;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Ensures the image doesn't overflow the container */
+background-color: #0061fe;
+border-radius: 8px;
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
-.icon-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image covers the container without distortion */
+.icon {
+width: 40px;
+height: 40px;
+background-image: url('dropbox-icon.svg');
+background-size: contain;
+background-repeat: no-repeat;
 }
 
 .app-info {
-  text-align: center;
-  margin-top: 12px;
-}
-
-.row-view .app-info {
-  text-align: left;
-  margin-left: 16px;
-  flex-grow: 1;
-  margin-top: 0;
+flex-grow: 1;
+margin-left: 12px;
 }
 
 .app-name {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 4px;
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 4px;
 }
 
-.app-name.apps {
-  color: #0061fe;
-}
-
-.app-name.tools {
-  color: #00c853;
-}
-
-.app-name.scripts {
-  color: #ff9100;
-}
-
-.app-name.others {
-  color: #9b59b6;
-}
-
-.app-posted-by {
-  font-size: 12px;
-  color: #666;
-  margin-top: 4px;
+.app-downloads {
+font-size: 12px;
+color: #666;
 }
 
 .install-button button {
-  background-color: #0061fe;
-  color: #fff;
-  border: none;
-  border-radius: 16px;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  margin-top: 12px;
+background-color: #0061fe;
+color: #fff;
+border: none;
+border-radius: 16px;
+padding: 8px 16px;
+font-size: 14px;
+cursor: pointer;
 }
 
-.row-view .install-button {
-  margin-left: 16px;
+.row-view .install-prompt {
+flex-direction: row;
+align-items: flex-start;
+padding: 16px;
 }
 
-.post-modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+.row-view .icon-container {
+width: 60px;
+height: 60px;
 }
 
-.post-modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
+.row-view .icon {
+width: 60px;
+height: 60px;
 }
 
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.row-view .app-info {
+margin-left: 16px;
+flex-grow: 1;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.row-view .app-name {
+font-size: 16px;
 }
 
-@media (max-width: 767px) {
-  .search-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  #search-input,
-  #category-dropdown,
-  #organizer-btn,
-  .post-button {
-    max-width: 100%;
-  }
-
-  .install-prompts-container {
-    grid-template-columns: 1fr;
-  }
-
-  .row-view .install-prompt {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .row-view .app-info {
-    text-align: center;
-    margin-left: 0;
-    margin-top: 12px;
-  }
-
-  .row-view .install-button {
-    margin-left: 0;
-  }
-
-  .post-modal-content {
-    width: 90%;
-  }
+.row-view .app-downloads {
+font-size: 14px;
 }
