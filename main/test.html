@@ -5,199 +5,212 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Customizable Navigation Bar</title>
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  .assistive-touch {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #ccc;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  .assistive-touch:hover {
-    transform: scale(1.1);
-  }
-  .assistive-touch.active {
-    width: 250px;
-    transition: width 0.4s ease, height 0.4s ease;
-  }
-  .assistive-touch.active .settings-menu {
-    display: block;
-  }
-  .settings-menu {
-    display: none;
-    position: absolute;
-    bottom: 80px;
-    right: 0;
-    width: 200px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    transition: opacity 0.4s ease;
-  }
-  .settings-menu h4 {
-    margin: 0;
-    padding: 10px;
-    border-bottom: 1px solid #e5e5e5;
-    cursor: pointer;
-  }
-  .settings-menu h4:hover {
-    background-color: #e5e5e5;
-  }
-  .settings-menu .options {
-    display: none;
-  }
-  .settings-menu .options.active {
-    display: block;
-  }
-  .theme-option {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #e5e5e5;
-    cursor: pointer;
-  }
-  .theme-option:hover {
-    background-color: #e5e5e5;
-  }
-  /* Themes */
-  .theme-dark {
-    background-color: #181818;
-    color: #fff;
-  }
-  .theme-instagram {
-    background-color: #E1306C;
-    color: #fff;
-  }
-  .theme-discord {
-    background-color: #5865F2;
-    color: #fff;
-  }
-  .theme-twitter {
-    background-color: #1DA1F2;
-    color: #fff;
-  }
-  .theme-snapchat {
-    background-color: #FFFC00;
-    color: #000;
-  }
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+transition: background-color 0.4s ease, color 0.4s ease;
+}
+.assistive-touch {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 60px;
+height: 60px;
+background-color: #ccc;
+border-radius: 50%;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: transform 0.2s ease;
+}
+.assistive-touch:hover {
+transform: scale(1.1);
+}
+.assistive-touch.active {
+width: 250px;
+transition: width 0.4s ease, height 0.4s ease;
+}
+.assistive-touch .settings-icon {
+pointer-events: none; /* Prevents the image from triggering drag */
+}
+.settings-menu {
+display: none;
+position: absolute;
+bottom: 80px;
+right: 0;
+width: 200px;
+background-color: #f5f5f5;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+padding: 10px;
+transition: opacity 0.4s ease;
+}
+.settings-menu h4 {
+margin: 0;
+padding: 10px;
+border-bottom: 1px solid #e5e5e5;
+cursor: pointer;
+}
+.settings-menu h4:hover {
+background-color: #e5e5e5;
+}
+.settings-menu .options {
+display: none;
+}
+.settings-menu .options.active {
+display: block;
+}
+.theme-option {
+margin: 10px 0;
+padding: 10px;
+border: 1px solid #e5e5e5;
+cursor: pointer;
+}
+.theme-option:hover {
+background-color: #e5e5e5;
+}
+/* Themes */
+.theme-dark {
+background-color: #181818;
+color: #fff;
+}
+.theme-instagram {
+background-color: #E1306C;
+color: #fff;
+}
+.theme-discord {
+background-color: #5865F2;
+color: #fff;
+}
+.theme-twitter {
+background-color: #1DA1F2;
+color: #fff;
+}
+.theme-snapchat {
+background-color: #FFFC00;
+color: #000;
+}
 </style>
 </head>
 <body>
+
 <div id="navBar" class="assistive-touch" draggable="true">
-  <div class="settings-icon">⚙️</div>
-  <div class="settings-menu">
-    <h4 data-option="pages">Pages</h4>
-    <div class="options" id="pages">
-      <div data-page="home">Home Page</div>
-      <div data-page="second">Second Page</div>
-      <!-- Add more pages as needed -->
-    </div>
-    <h4 data-option="theme">Theme</h4>
-    <div class="options" id="theme">
-      <div class="theme-option" data-theme="dark">Dark (Instagram)</div>
-      <div class="theme-option" data-theme="instagram">Instagram</div>
-      <div class="theme-option" data-theme="discord">Discord</div>
-      <div class="theme-option" data-theme="twitter">Twitter</div>
-      <div class="theme-option" data-theme="snapchat">Snapchat</div>
-    </div>
-    <h4 data-option="layout">Layout</h4>
-    <div class="options" id="layout">
-      <div data-size="small">Small</div>
-      <div data-size="medium">Medium</div>
-      <div data-size="large">Large</div>
-    </div>
-    <h4 data-option="discord">Discord</h4>
-    <div class="options" id="discord">
-      <div>Join My Server</div>
-    </div>
-  </div>
+<img src="path-to-your-logo.png" alt="Settings Logo" class="settings-icon">
+<div class="settings-menu">
+<h4 data-option="pages">Pages</h4>
+<div class="options" id="pages">
+<div data-page="home">Home Page</div>
+<div data-page="second">Second Page</div>
+<!-- Add more pages as needed -->
+</div>
+<h4 data-option="theme">Theme</h4>
+<div class="options" id="theme">
+<div class="theme-option" data-theme="dark">Dark</div>
+<div class="theme-option" data-theme="instagram">Instagram</div>
+<div class="theme-option" data-theme="discord">Discord</div>
+<div class="theme-option" data-theme="twitter">Twitter</div>
+<div class="theme-option" data-theme="snapchat">Snapchat</div>
+</div>
+<h4 data-option="layout">Layout</h4>
+<div class="options" id="layout">
+<div data-size="small">Small</div>
+<div data-size="medium">Medium</div>
+<div data-size="large">Large</div>
+</div>
+<h4 data-option="discord">Discord</h4>
+<div class="options" id="discord">
+<div>Join My Server</div>
+</div>
+</div>
 </div>
 
 <script>
-  const assistiveTouch = document.getElementById('navBar');
-  const settingsMenu = document.querySelector('.settings-menu');
-  const pagesOption = document.querySelector('[data-option="pages"]');
-  const themeOption = document.querySelector('[data-option="theme"]');
-  const layoutOption = document.querySelector('[data-option="layout"]');
-  const discordOption = document.querySelector('[data-option="discord"]');
-  let currentPage = 'home';
+const assistiveTouch = document.getElementById('navBar');
+const settingsMenu = document.querySelector('.settings-menu');
+const pagesOption = document.querySelector('[data-option="pages"]');
+const themeOption = document.querySelector('[data-option="theme"]');
+const layoutOption = document.querySelector('[data-option="layout"]');
+const discordOption = document.querySelector('[data-option="discord"]');
+let currentPage = 'home';
+let isDragging = false;
 
-  // Drag functionality
-  assistiveTouch.addEventListener('dragstart', function(event) {
-    event.dataTransfer.setData('text/plain', null);
-  });
+// Drag functionality
+assistiveTouch.addEventListener('mousedown', function(event) {
+isDragging = true;
+});
 
-  assistiveTouch.addEventListener('dragover', function(event) {
-    event.preventDefault();
-  });
+document.addEventListener('mouseup', function(event) {
+if (isDragging) {
+isDragging = false;
+}
+});
 
-  assistiveTouch.addEventListener('drop', function(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData('text/plain');
+assistiveTouch.addEventListener('dragstart', function(event) {
+event.dataTransfer.setData('text/plain', null);
+});
+
+assistiveTouch.addEventListener('dragover', function(event) {
+event.preventDefault();
+});
+
+assistiveTouch.addEventListener('drop', function(event) {
+event.preventDefault();
 // Handle the drop event (e.g., change pages)
-  });
+});
 
-  // Toggle settings menu
-  assistiveTouch.addEventListener('click', function() {
-    this.classList.toggle('active');
-    settingsMenu.style.display = this.classList.contains('active') ? 'block' : 'none';
-  });
+// Toggle settings menu without closing it on click
+assistiveTouch.addEventListener('click', function(event) {
+event.stopPropagation(); // Prevent click from closing the menu
+this.classList.toggle('active');
+settingsMenu.style.display = this.classList.contains('active') ? 'block' : 'none';
+});
 
-  // Handle options click
-  document.querySelectorAll('.settings-menu h4').forEach(option => {
-    option.addEventListener('click', function() {
-      const targetOption = this.getAttribute('data-option');
-      document.querySelectorAll('.options').forEach(o => o.classList.remove('active'));
-      document.getElementById(targetOption).classList.add('active');
-    });
-  });
+// Handle options click
+document.querySelectorAll('.settings-menu h4').forEach(option => {
+option.addEventListener('click', function() {
+const targetOption = this.getAttribute('data-option');
+document.querySelectorAll('.options').forEach(o => o.classList.remove('active'));
+document.getElementById(targetOption).classList.add('active');
+});
+});
 
-  // Handle theme changes
-  document.querySelectorAll('.theme-option').forEach(theme => {
-    theme.addEventListener('click', function() {
-      const themeName = this.getAttribute('data-theme');
-      document.body.classList = '';
-      if (themeName) {
-        document.body.classList.add(themeName);
-      }
-    });
-  });
+// Handle theme changes
+document.querySelectorAll('.theme-option').forEach(theme => {
+theme.addEventListener('click', function() {
+const themeName = this.getAttribute('data-theme');
+document.body.classList = '';
+if (themeName) {
+document.body.classList.add(themeName);
+}
+});
+});
 
-  // Handle page changes
-  document.querySelectorAll('#pages div').forEach(page => {
-    page.addEventListener('click', function() {
-      const pageName = this.getAttribute('data-page');
-      // Update the current page and UI accordingly
-      currentPage = pageName;
-      console.log(`Navigated to ${pageName}`);
-    });
-  });
+// Handle page changes
+document.querySelectorAll('#pages div').forEach(page => {
+page.addEventListener('click', function() {
+const pageName = this.getAttribute('data-page');
+// Update the current page and UI accordingly
+currentPage = pageName;
+console.log(`Navigated to ${pageName}`);
+});
+});
 
-  // Handle layout changes
-  document.querySelectorAll('#layout div').forEach(size => {
-    size.addEventListener('click', function() {
-      const sizeName = this.getAttribute('data-size');
-      // Update the layout size and UI accordingly
-      console.log(`Layout size changed to ${sizeName}`);
-    });
-  });
+// Handle layout changes
+document.querySelectorAll('#layout div').forEach(size => {
+size.addEventListener('click', function() {
+const sizeName = this.getAttribute('data-size');
+// Update the layout size and UI accordingly
+console.log(`Layout size changed to ${sizeName}`);
+});
+});
 
-  // Handle discord invitation
-  document.querySelector('#discord div').addEventListener('click', function() {
-    // Redirect to discord server or open invite link
-    console.log('Redirecting to Discord server...');
-  });
+// Handle discord invitation
+document.querySelector('#discord div').addEventListener('click', function() {
+// Redirect to discord server or open invite link
+console.log('Redirecting to Discord server...');
+});
 </script>
 
 </body>
