@@ -1,96 +1,204 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #2c2f33;
-            color: #ffffff;
-        }
-        .header {
-            background-color: #23272a;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header h1 {
-            margin: 0;
-        }
-        .settings-icon {
-            cursor: pointer;
-            font-size: 24px;
-        }
-        .settings-menu {
-            position: absolute;
-            top: 50px;
-            right: 20px;
-            background-color: #23272a;
-            border: 1px solid #72767d;
-            border-radius: 5px;
-            width: 200px;
-            overflow: hidden;
-            display: none;
-            transition: max-height 0.3s ease, opacity 0.3s ease;
-        }
-        .settings-menu.open {
-            display: block;
-            max-height: 300px;
-            opacity: 1;
-        }
-        .settings-menu.closed {
-            max-height: 0;
-            opacity: 0;
-        }
-        .settings-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .settings-menu li {
-            padding: 10px;
-            border-bottom: 1px solid #72767d;
-        }
-        .settings-menu li:hover {
-            background-color: #99aab5;
-            color: #2c2f33;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customizable Navigation Bar</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .assistive-touch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #ccc;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .assistive-touch:hover {
+    transform: scale(1.1);
+  }
+  .assistive-touch.active {
+    width: 250px;
+    transition: width 0.4s ease, height 0.4s ease;
+  }
+  .assistive-touch.active .settings-menu {
+    display: block;
+  }
+  .settings-menu {
+    display: none;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 200px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: opacity 0.4s ease;
+  }
+  .settings-menu h4 {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+  }
+  .settings-menu h4:hover {
+    background-color: #e5e5e5;
+  }
+  .settings-menu .options {
+    display: none;
+  }
+  .settings-menu .options.active {
+    display: block;
+  }
+  .theme-option {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+  }
+  .theme-option:hover {
+    background-color: #e5e5e5;
+  }
+  /* Themes */
+  .theme-dark {
+    background-color: #181818;
+    color: #fff;
+  }
+  .theme-instagram {
+    background-color: #E1306C;
+    color: #fff;
+  }
+  .theme-discord {
+    background-color: #5865F2;
+    color: #fff;
+  }
+  .theme-twitter {
+    background-color: #1DA1F2;
+    color: #fff;
+  }
+  .theme-snapchat {
+    background-color: #FFFC00;
+    color: #000;
+  }
+</style>
 </head>
 <body>
-    <div class="header">
-        <h1>Test Page</h1>
-        <div id="settingsIcon" class="settings-icon">⚙️</div>
+<div id="navBar" class="assistive-touch" draggable="true">
+  <div class="settings-icon">⚙️</div>
+  <div class="settings-menu">
+    <h4 data-option="pages">Pages</h4>
+    <div class="options" id="pages">
+      <div data-page="home">Home Page</div>
+      <div data-page="second">Second Page</div>
+      <!-- Add more pages as needed -->
     </div>
-    <div id="settingsMenu" class="settings-menu closed">
-        <ul>
-            <li>Profile</li>
-            <li>Account Settings</li>
-            <li>Privacy</li>
-            <li>Notifications</li>
-            <li>Log Out</li>
-        </ul>
+    <h4 data-option="theme">Theme</h4>
+    <div class="options" id="theme">
+      <div class="theme-option" data-theme="dark">Dark (Instagram)</div>
+      <div class="theme-option" data-theme="instagram">Instagram</div>
+      <div class="theme-option" data-theme="discord">Discord</div>
+      <div class="theme-option" data-theme="twitter">Twitter</div>
+      <div class="theme-option" data-theme="snapchat">Snapchat</div>
     </div>
+    <h4 data-option="layout">Layout</h4>
+    <div class="options" id="layout">
+      <div data-size="small">Small</div>
+      <div data-size="medium">Medium</div>
+      <div data-size="large">Large</div>
+    </div>
+    <h4 data-option="discord">Discord</h4>
+    <div class="options" id="discord">
+      <div>Join My Server</div>
+    </div>
+  </div>
+</div>
 
-    <script>
-        function toggleSettingsMenu(event) {
-            var menu = document.getElementById('settingsMenu');
-            var icon = document.getElementById('settingsIcon');
-            if (menu.classList.contains('closed') && icon.contains(event.target)) {
-                menu.classList.remove('closed');
-                menu.classList.add('open');
-            } else if (!menu.contains(event.target) && !icon.contains(event.target)) {
-                menu.classList.remove('open');
-                menu.classList.add('closed');
-            }
-        }
+<script>
+  const assistiveTouch = document.getElementById('navBar');
+  const settingsMenu = document.querySelector('.settings-menu');
+  const pagesOption = document.querySelector('[data-option="pages"]');
+  const themeOption = document.querySelector('[data-option="theme"]');
+  const layoutOption = document.querySelector('[data-option="layout"]');
+  const discordOption = document.querySelector('[data-option="discord"]');
+  let currentPage = 'home';
 
-        document.addEventListener('click', toggleSettingsMenu);
-    </script>
+  // Drag functionality
+  assistiveTouch.addEventListener('dragstart', function(event) {
+    event.dataTransfer.setData('text/plain', null);
+  });
+
+  assistiveTouch.addEventListener('dragover', function(event) {
+    event.preventDefault();
+  });
+
+  assistiveTouch.addEventListener('drop', function(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData('text/plain');
+// Handle the drop event (e.g., change pages)
+  });
+
+  // Toggle settings menu
+  assistiveTouch.addEventListener('click', function() {
+    this.classList.toggle('active');
+    settingsMenu.style.display = this.classList.contains('active') ? 'block' : 'none';
+  });
+
+  // Handle options click
+  document.querySelectorAll('.settings-menu h4').forEach(option => {
+    option.addEventListener('click', function() {
+      const targetOption = this.getAttribute('data-option');
+      document.querySelectorAll('.options').forEach(o => o.classList.remove('active'));
+      document.getElementById(targetOption).classList.add('active');
+    });
+  });
+
+  // Handle theme changes
+  document.querySelectorAll('.theme-option').forEach(theme => {
+    theme.addEventListener('click', function() {
+      const themeName = this.getAttribute('data-theme');
+      document.body.classList = '';
+      if (themeName) {
+        document.body.classList.add(themeName);
+      }
+    });
+  });
+
+  // Handle page changes
+  document.querySelectorAll('#pages div').forEach(page => {
+    page.addEventListener('click', function() {
+      const pageName = this.getAttribute('data-page');
+      // Update the current page and UI accordingly
+      currentPage = pageName;
+      console.log(`Navigated to ${pageName}`);
+    });
+  });
+
+  // Handle layout changes
+  document.querySelectorAll('#layout div').forEach(size => {
+    size.addEventListener('click', function() {
+      const sizeName = this.getAttribute('data-size');
+      // Update the layout size and UI accordingly
+      console.log(`Layout size changed to ${sizeName}`);
+    });
+  });
+
+  // Handle discord invitation
+  document.querySelector('#discord div').addEventListener('click', function() {
+    // Redirect to discord server or open invite link
+    console.log('Redirecting to Discord server...');
+  });
+</script>
+
 </body>
 </html>
