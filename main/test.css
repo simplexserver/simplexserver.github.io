@@ -1,1 +1,339 @@
 
+body {
+background-color: #000;
+color: #fff;
+font-family: Arial, sans-serif;
+}
+
+.header {
+background-color: #000;
+padding: 10px 0;
+text-align: center;
+}
+
+.header h1 {
+font-size: 2em;
+margin: 0;
+}
+
+.search-container {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 10px;
+gap: 10px;
+}
+
+#search-input,
+#category-dropdown,
+#organizer-btn {
+padding: 8px 16px;
+border: 1px solid #ccc;
+border-radius: 20px;
+font-size: 16px;
+background-color: #fff;
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+}
+
+#search-input {
+width: 100%;
+max-width: 300px;
+}
+
+#category-dropdown {
+width: auto;
+}
+
+#organizer-btn {
+background-color: #0061fe;
+color: #fff;
+border: none;
+border-radius: 20px;
+padding: 8px 12px; /* Adjusted padding for a thinner button */
+font-size: 16px;
+cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+backdrop-filter: blur(2px); /* Blur effect for the background */
+}
+
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+border-radius: 16px; /* Rounded corners for the modal */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+}
+
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+.modal-content h2 {
+margin-top: 0;
+}
+
+.modal-content p {
+margin-bottom: 20px;
+}
+
+.download-btn {
+background-color: #0061fe;
+color: #fff;
+border: none;
+border-radius: 16px;
+padding: 10px 24px;
+font-size: 16px;
+cursor: pointer;
+display: inline-block;
+margin-top: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.download-btn:hover {
+background-color: #0051e5; /* Darker blue on hover */
+}
+
+.install-prompts-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+padding: 0 10px;
+margin-top: 20px;
+}
+
+.install-prompt {
+background-color: #1a1a1a;
+border-radius: 16px;
+display: flex;
+align-items: center;
+padding: 16px;
+width: 100%;
+max-width: 600px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.2s ease; /* Smooth transition for hover effect */
+}
+
+.install-prompt:hover {
+transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.icon-container {
+background-color: #0061fe;
+border-radius: 50%; /* Circular background */
+width: 72px;
+height: 72px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 16px;
+flex-shrink: 0; /* Prevent the icon from shrinking */
+overflow: hidden; /* Hide overflowing parts of the logo */
+}
+
+.icon {
+width: 100%;
+height: auto;
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+.app-info {
+flex-grow: 1;
+}
+
+.app-name {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 4px;
+color: #fff;
+}
+
+.app-version {
+font-size: 14px;
+color: #ccc;
+margin-bottom: 8px;
+}
+
+.app-description {
+font-size: 14px;
+color: #ccc;
+margin-bottom: 16px;
+line-height: 1.4;
+height: 48px; /* Set a fixed height for the description */
+overflow: hidden; /* Hide overflowing text */
+text-overflow: ellipsis; /* Add an ellipsis to truncated text */
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3; /* Truncate after 3 lines */
+}
+
+.app-links a {
+color: #0061fe;
+text-decoration: none;
+margin-bottom: 8px;
+display: block;
+}
+
+.app-links a:hover {
+text-decoration: underline;
+}
+
+/* Grid layout for medium and large screens */
+@media (min-width: 768px) {
+.install-prompts-container {
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: flex-start;
+}
+
+.install-prompt {
+flex: 1 1 50%; /* Each app takes up half of the container's width */
+max-width: 50%; /* Max 2 apps per row */
+}
+}
+
+/* Row layout for small screens */
+@media (max-width: 767px) {
+.install-prompts-container.row-view .install-prompt {
+flex-basis: 100%; /* Each app takes up the full width of the container */
+}
+}
+
+/* Styles for the version history link */
+.version-history-link a {
+color: #0061fe;
+text-decoration: none;
+display: inline-block;
+margin-top: 10px;
+}
+
+.version-history-link a:hover {
+text-decoration: underline;
+}
+
+/* Styles for the modal content */
+.modal-content h2 {
+margin-top: 0;
+}
+
+.modal-content p {
+margin-bottom: 20px;
+}
+
+/* Styles for the close button */
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+.version-history-btn {
+background-color: #0061fe;
+color: #fff;
+border: none;
+border-radius: 16px;
+padding: 10px 24px;
+font-size: 16px;
+cursor: pointer;
+display: inline-block;
+margin-top: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.version-history-btn:hover {
+background-color: #0051e5; /* Darker blue on hover */
+}
+
+/* Styles for the download button in the modal */
+.download-btn {
+background-color: #0061fe;
+color: #fff;
+border: none;
+border-radius: 16px;
+padding: 10px 24px;
+font-size: 16px;
+cursor: pointer;
+display: inline-block;
+margin-top: 10px;
+}
+
+.download-btn:hover {
+background-color: #0051e5; /* Darker blue on hover */
+}
+
+/* Styles for the install button */
+.install-button button {
+background-color: #0061fe;
+color: #fff;
+border: none;
+border-radius: 16px;
+padding: 10px 24px;
+font-size: 16px;
+cursor: pointer;
+display: inline-block;
+margin-top: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.install-button button:hover {
+background-color: #0051e5; /* Darker blue on hover */
+}
+
+.install-button a {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+text-decoration: none;
+}
+
+/* Styles for the app links within the modal */
+.modal-content .app-links a {
+color: #0061fe;
+text-decoration: none;
+margin-bottom: 8px;
+display: block;
+}
+
+.modal-content .app-links a:hover {
+text-decoration: underline;
+}
