@@ -1,21 +1,33 @@
+
+body {
+background-color: #000;
+color: #fff;
+font-family: Arial, sans-serif;
+}
+
+.header {
+background-color: #000;
+padding: 10px 0;
+text-align: center;
+}
+
+.header h1 {
+font-size: 2em;
+margin: 0;
+}
+
 .search-container {
 display: flex;
 justify-content: center;
 align-items: center;
-margin-bottom: 20px;
+margin-top: 10px;
+gap: 10px;
 }
 
-#search-input {
+#search-input,
+#category-dropdown,
+#organizer-btn {
 padding: 8px 16px;
-border: 1px solid #ccc;
-border-radius: 20px;
-font-size: 16px;
-width: 300px;
-}
-
-#category-dropdown {
-margin-left: 10px;
-padding: 8px 16px 8px 12px;
 border: 1px solid #ccc;
 border-radius: 20px;
 font-size: 16px;
@@ -23,72 +35,90 @@ background-color: #fff;
 appearance: none;
 -webkit-appearance: none;
 -moz-appearance: none;
-background-image: url('dropdown-arrow.svg');
-background-repeat: no-repeat;
-background-position: right 12px center;
-background-size: 12px;
 }
 
-.organizer-container {
-margin-left: 10px;
+#search-input {
+width: 100%;
+max-width: 300px;
+}
+
+#category-dropdown {
+width: auto;
 }
 
 #organizer-btn {
 background-color: #0061fe;
 color: #fff;
 border: none;
-border-radius: 16px;
-padding: 8px 16px;
-font-size: 14px;
+border-radius: 20px;
+padding: 8px 12px; /* Adjusted padding for a thinner button */
+font-size: 16px;
 cursor: pointer;
 }
 
 .install-prompts-container {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-gap: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+padding: 0 10px;
+margin-top: 20px;
 }
 
 .install-prompt {
-background-color: #fff;
+background-color: #1a1a1a;
 border-radius: 16px;
 display: flex;
 align-items: center;
 padding: 12px;
+width: 100%;
+max-width: 600px;
+border-bottom: 1px solid #333;
 }
 
 .icon-container {
-background-color: #0061fe;
+background-color: transparent; /* Removed the blue background */
 border-radius: 8px;
-width: 40px;
-height: 40px;
+width: 60px;
+height: 60px;
 display: flex;
 justify-content: center;
 align-items: center;
+margin-right: 12px;
 }
 
 .icon {
-width: 40px;
-height: 40px;
-background-image: url('dropbox-icon.svg');
-background-size: contain;
-background-repeat: no-repeat;
+width: 100%; /* The logo will now cover the entire icon container */
+height: auto; /* Maintain the aspect ratio of the logo */
+border-radius: 8px; /* Optional: maintain the border-radius */
 }
 
 .app-info {
 flex-grow: 1;
-margin-left: 12px;
 }
 
 .app-name {
-font-size: 14px;
+font-size: 16px;
 font-weight: bold;
 margin-bottom: 4px;
 }
 
-.app-downloads {
+.app-version {
+font-size: 14px;
+color: #ccc;
+margin-bottom: 4px;
+}
+
+.app-description {
 font-size: 12px;
-color: #666;
+color: #ccc;
+margin-bottom: 8px;
+}
+
+.install-button {
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .install-button button {
@@ -101,31 +131,23 @@ font-size: 14px;
 cursor: pointer;
 }
 
-.row-view .install-prompt {
+/* Grid layout for medium and large screens */
+@media (min-width: 768px) {
+.install-prompts-container {
 flex-direction: row;
-align-items: flex-start;
-padding: 16px;
+flex-wrap: wrap;
+justify-content: flex-start;
 }
 
-.row-view .icon-container {
-width: 60px;
-height: 60px;
+.install-prompt {
+flex: 1 1 50%; /* Each app takes up half of the container's width */
+max-width: 50%; /* Max 2 apps per row */
+}
 }
 
-.row-view .icon {
-width: 60px;
-height: 60px;
+/* Row layout for small screens */
+@media (max-width: 767px) {
+.install-prompts-container.row-view .install-prompt {
+flex-basis: 100%; /* Each app takes up the full width of the container */
 }
-
-.row-view .app-info {
-margin-left: 16px;
-flex-grow: 1;
-}
-
-.row-view .app-name {
-font-size: 16px;
-}
-
-.row-view .app-downloads {
-font-size: 14px;
 }
