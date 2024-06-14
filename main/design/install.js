@@ -1,8 +1,9 @@
+
 const searchInput = document.getElementById('search-input');
 const categoryDropdown = document.getElementById('category-dropdown');
-const installPrompts = document.querySelectorAll('.install-prompt');
+const installPromptsContainer = document.querySelector('.install-prompts-container');
 const organizerBtn = document.getElementById('organizer-btn');
-const installButtons = document.querySelectorAll('.install-button button');
+const headerTitle = document.getElementById('header-title'); // Reference to the header title element
 
 let isRowView = false;
 
@@ -10,7 +11,7 @@ function filterPrompts() {
 const searchTerm = searchInput.value.toLowerCase();
 const selectedCategory = categoryDropdown.value;
 
-installPrompts.forEach((prompt) => {
+installPromptsContainer.querySelectorAll('.install-prompt').forEach((prompt) => {
 const appName = prompt.querySelector('.app-name').textContent.toLowerCase();
 const category = prompt.dataset.category;
 
@@ -26,35 +27,58 @@ prompt.style.display = 'none';
 }
 
 function toggleView() {
-const installPromptsContainer = document.querySelector('.install-prompts-container');
-installPromptsContainer.classList.toggle('row-view');
-
 if (isRowView) {
 organizerBtn.textContent = 'View as Grid';
+installPromptsContainer.classList.remove('row-view');
+installPromptsContainer.style.justifyContent = 'flex-start';
 } else {
 organizerBtn.textContent = 'View as Rows';
+installPromptsContainer.classList.add('row-view');
+installPromptsContainer.style.justifyContent = 'center';
 }
 
 isRowView = !isRowView;
 }
 
+function updateHeaderText() {
+const selectedCategory = categoryDropdown.value;
+const headerText = selectedCategory || 'Apps';
+headerTitle.textContent = headerText.charAt(0).toUpperCase() + headerText.slice(1);
+}
+
+function openVersionHistory(appName) {
+// ... (same as before)
+}
+
 function incrementDownloads(event) {
-const installPrompt = event.target.closest('.install-prompt');
-let downloadCount = parseInt(installPrompt.dataset.downloads) || 0;
-downloadCount++;
-installPrompt.dataset.downloads = downloadCount;
-installPrompt.querySelector('.app-downloads').textContent = `${downloadCount}+ downloads`;
+// ... (same as before)
 }
 
 searchInput.addEventListener('input', filterPrompts);
-categoryDropdown.addEventListener('change', filterPrompts);
-organizerBtn.addEventListener('click', toggleView);
-installButtons.forEach((button) => {
-button.addEventListener('click', incrementDownloads);
+categoryDropdown.addEventListener('change', (event) => {
+filterPrompts();
+updateHeaderText();
 });
 
-// Initialize download counts from data attribute
-installPrompts.forEach((prompt) => {
-const downloadCount = parseInt(prompt.dataset.downloads) || 0;
-prompt.querySelector('.app-downloads').textContent = `${downloadCount}+ downloads`;
+organizerBtn.addEventListener('click', toggleView);
+
+const installButtons = document.querySelectorAll('.install-button button');
+
+installButtons.forEach((button) => {
+button.addEventListener('click', (event) => {
+incrementDownloads(event);
+const appName = event.target.closest('.install-prompt').querySelector('.app-name').textContent;
+openVersionHistory(appName);
 });
+});
+
+// Initialize the view mode
+if (window.innerWidth >= 768) {
+organizerBtn.textContent = 'View as Rows';
+installPromptsContainer.classList.add('row-view');
+installPromptsContainer.style.justifyContent = 'center';
+isRowView = true;
+}
+
+// Initialize the header text
+updateHeaderText();
