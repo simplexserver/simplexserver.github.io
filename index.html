@@ -3,10 +3,32 @@
 <head>
     <title>Current Projects</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
         button {
+            font-size: 1.5em;
             background-color: black;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border: none;
             cursor: pointer;
         }
@@ -24,18 +46,14 @@
             90% { transform: translate(1px, 2px) rotate(0deg); }
             100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
-
-        h1 {
-            display: inline-block;
-            animation: shake 0.5s;
-            animation-iteration-count: infinite;
-        }
     </style>
 </head>
 <body>
-    <h1>I'm Currently Working On This</h1>
-    <a href="https://simplexserver.github.io/main/test.html" target="_blank">
-        <button>Click Me</button>
-    </a>
+    <div class="container">
+        <h1>I'm Currently Working On This</h1>
+        <a href="https://simplexserver.github.io/main/test.html" target="_blank">
+            <button>Click Me</button>
+        </a>
+    </div>
 </body>
 </html>
