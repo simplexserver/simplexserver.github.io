@@ -1,0 +1,30 @@
+{
+  "META": {
+    "repoName": "Scarlet Repo",
+    "repoIcon": "https://usescarlet.com/favicon.png"
+  },
+  "Games": [
+    {
+      "name": "iPogo",
+      "version": "0.331.1",
+      "down": "https://ipogo.app/download/ipogo-3.5.5.ipa",
+      "category": "Hacked Games",
+      "description": "With iPogo you get a full set of tools to help you be the best. iPogo is a Simple, Powerful and Intuitive App.",
+      "bundleID": "com.nianticlabs.pokemongo",
+      "appstore": "com.nianticlabs.pokemongo"
+    },
+    
+  ],
+  "Other": [
+    {
+      "name": "Scarlet",
+      "version": "1.0",
+      "icon": "https://usescarlet.com/icon.png",
+      "down": "https://resources.usescarlet.com/repo/IPAs/ScarletAlpha.ipa",
+      "description": "This is the standard version of Scarlet. Allowing you to tweak and sideload your apps along with import your own certificates or use with a paid developer account entirely computerless.",
+      "bundleID": "com.DebianArch.Scarlet",
+      "category": "Alpha",
+      "changelog": "- Added fakesign support\n-Added back SSL install support."
+    }
+  ]
+}
