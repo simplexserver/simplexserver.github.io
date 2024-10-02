@@ -30,14 +30,11 @@
             "developerName": "ivglitched",
             "version": "1.2",
             "versionDate": "2024-10-02",
-            "downloadURL": "https:\/\/ipa.cypwn.xyz\/ipas\/Asspp_1.2.ipa",
-            "localizedDescription": "Assistive tool for the App Store.",
-            "iconURL": "https:\/\/ipa.cypwn.xyz\/serve\/icons\/Asspp_1.2.png",
+            "downloadURL": "https://github.com/simplexserver/simplexserver.github.io/raw/refs/heads/main/ipas/Cash%20App_1.0_1726727501.ipa",
+            "localizedDescription": "Visual Infinite Money",
+            "iconURL": "https://simplexserver.github.io/logo/cashapp.png",
             "tintColor": "FFC300",
-            "size": 6291456,
-            "screenshotURLs": [
-                "https:\/\/ipa.cypwn.xyz\/serve\/screenshots\/Asspp_1.2\/Asspp_1.2-0.png"
-            ]
+            "size": 6291456
         },
    ]
 }
