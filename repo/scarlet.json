@@ -1,28 +1,19 @@
 
 {
     "repo": {
-        "name": "Your Repo Name",
-        "description": "A brief description of your repo",
+        "name": "Fake Cash App",
+        "description": "Add Infinite Money",
         "version": "1.0"
     },
     "packages": [
         {
-            "name": "App Name",
-            "bundleIdentifier": "com.example.appname",
+            "name": "Cash App",
+            "bundleIdentifier": "com.squareup.cash2",
             "version": "1.0.0",
-            "url": "https://yourserver.com/path/to/app.ipa",
-            "icon": "https://yourserver.com/path/to/icon.png",
-            "description": "A short description of the app",
-            "size": "10MB"
-        },
-        {
-            "name": "Another App",
-            "bundleIdentifier": "com.example.anotherapp",
-            "version": "2.0.0",
-            "url": "https://yourserver.com/path/to/anotherapp.ipa",
-            "icon": "https://yourserver.com/path/to/anothericon.png",
-            "description": "Another short description",
-            "size": "15MB"
+            "url": "https://github.com/simplexserver/simplexserver.github.io/raw/refs/heads/main/ipas/Cash%20App_1.0_1726727501.ipa",
+            "icon": "https://static-00.iconduck.com/assets.00/cashapp-icon-512x512-659ntq6s.png",
+            "description": "Add Infinite Money To Your Balance",
+            "size": "1.7MB"
         }
     ]
 }
