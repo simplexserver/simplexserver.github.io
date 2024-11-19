@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celeste's Photo Gallery</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+.gallery {
+text-align: center;
+margin-top: 50px;
+}
+.gallery-button {
+background-color: black;
+color: white;
+border: none;
+padding: 10px 20px;
+margin: 10px;
+cursor: pointer;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+.gallery-button:hover {
+background-color: #555;
+}
+.gallery-image {
+width: 100px;
+height: 100px;
+object-fit: cover;
+border-radius: 10px;
+cursor: pointer;
+filter: blur(5px);
+transition: filter 0.3s ease;
+}
+.full-image {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+z-index: 1000;
+border-radius: 10px;
+transition: opacity 0.3s ease;
+}
+.close-button {
+position: absolute;
+top: 10px;
+right: 10px;
+background-color: black;
+color: white;
+border: none;
+padding: 5px 10px;
+cursor: pointer;
+border-radius: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="gallery">
+<h1>You have been invited to view 5 photos of Celeste</h1>
+<button class="gallery-button" onclick="showImage('https://media.discordapp.net/attachments/1113158218902933614/1308276498171559956/IMG_3357.jpg?ex=673d5aef&is=673c096f&hm=2ad936c67aede46457dd3074619c820569bcb59e782cbe59a544e2a2b876eddc&')">View Photo 1</button>
+<button class="gallery-button" onclick="showImage('https://media.discordapp.net/attachments/1113158218902933614/1308276498452713504/IMG_3356.jpg?ex=673d5aef&is=673c096f&hm=d6cada6906494514fb6bc4505e30634e085b35ff4fc8c84666ca030091cb3660&')">View Photo 2</button>
+<button class="gallery-button" onclick="showImage('https://media.discordapp.net/attachments/1113158218902933614/1308276498733469737/IMG_3180.jpg?ex=673d5aef&is=673c096f&hm=850e46720a8ce09d5b58a9650cd6b73533c1d6df5ccaa1926b409d8f79b1bda2&')">View Photo 3</button>
+<button class="gallery-button" onclick="showImage('https://media.discordapp.net/attachments/1113158218902933614/1308276499018809427/IMG_3213.jpg?ex=673d5aef&is=673c096f&hm=d42421b055bad308cfdd14c45776f890812e5bac07a7917b3568440abb65852d&')">View Photo 4</button>
+<button class="gallery-button" onclick="showImage('https://media.discordapp.net/attachments/1113158218902933614/1308276499362615358/IMG_3355.jpg?ex=673d5af0&is=673c0970&hm=09a773f7785ab4db780c28af62b0e438798fee6de0dda066718e22e595d6b509&')">View Photo 5</button>
+</div>
+
+<script>
+function showImage(imageUrl) {
+const fullImage = document.createElement('div');
+fullImage.classList.add('full-image');
+fullImage.style.backgroundImage = `url('${imageUrl}')`;
+fullImage.style.opacity = 0;
+document.body.appendChild(fullImage);
+
+setTimeout(() => {
+fullImage.style.opacity = 1;
+}, 10);
+
+const closeButton = document.createElement('button');
+closeButton.classList.add('close-button');
+closeButton.textContent = 'Close';
+closeButton.onclick = () => {
+fullImage.style.opacity = 0;
+setTimeout(() => {
+fullImage.remove();
+closeButton.remove();
+}, 300);
+};
+
+fullImage.appendChild(closeButton);
+
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape') {
+fullImage.style.opacity = 0;
+setTimeout(() => {
+fullImage.remove();
+closeButton.remove();
+}, 300);
+}
+});
+}
+</script>
+
+</body>
+</html>
